@@ -1,0 +1,75 @@
+﻿
+<div class="row">
+    <div class="col-md-2">
+       
+    </div>
+    <div class="col-md-8" ng_controller="accountcontroller as ctrl" ng-init="ctrl.getservices();ctrl.getsupporters();ctrl.getpaymenttypes()">
+        <h2 stle="margin-left:250px">Pay For Services</h2>
+        <form ng-submit="ctrl.createTransaction()">
+            <div class="form-group">
+                <label class="col-lg-2 control-label">Service</label>
+                <div class="col-lg-10">
+                    <select name="select" class="form-control" ng-model="ctrl.transaction.Transtype" required>
+                        <option ng-repeat="item in ctrl.services" value="{{item.lineid}}">
+                            {{item.description}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <br /><br />
+
+            <div class="form-group" style="margin-top: 10px;">
+                <label class="col-lg-2 control-label" style="color:black;">Supporter</label>
+                <div class="col-lg-10">
+                    <select name="select" class="form-control" ng-model="ctrl.transaction.Supporter" required>
+                        <option ng-repeat="item in ctrl.supporters" value="{{item.code}}">
+                            {{item.name}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <br /><br />
+
+            <div class="form-group">
+                <label class="control-label col-lg-2" style="color:black;">Account No.</label>
+                <div class="col-lg-10">
+                    <input type="text" class="form-control" ng-model="ctrl.transaction.Customer" my-directive ng-required="true" required>
+                </div>
+            </div>
+            <br /><br />
+
+            <div class="form-group">
+                <label class="control-label col-lg-2" style="color:black;">Mode.</label>
+                <div class="col-lg-10">
+                    <select name="select" class="form-control" ng-model="ctrl.transaction.Modeofpay" required>
+                        <option ng-repeat="item in ctrl.paytypes" value="{{item.lineid}}">
+                            {{item.description}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <br /><br />
+
+            <div class="form-group">
+                <label class="control-label col-lg-2" style="color:black;">Amount.</label>
+                <div class="col-lg-10">
+                    <input type="text" restrict-input="^[0-9]*$" class="form-control" ng-model="ctrl.transaction.Amount" required>
+                </div>
+            </div>
+
+            <br /><br />
+            <button type="submit" class="btn btn-success">SUBMIT PAYMENT</button>
+
+
+
+
+        </form>
+
+
+
+
+    </div>
+    <div class="col-md-2" style="display:none">
+        
+    </div>
+</div>
