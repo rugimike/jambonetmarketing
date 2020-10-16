@@ -2,6 +2,8 @@
     var self = this;
     self.user = {};
     self.transaction = {};
+    
+    //update to commit
 
     self.getservices = function () {
         $.ajax({
